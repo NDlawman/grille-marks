@@ -1,23 +1,58 @@
 [
   {
-    "date": "2026-03-08",
-    "title": "Pass-a-Grille Sunrise",
-    "caption": "Golden hour hits different on the Gulf Coast.",
+    "date": "2026-03-07",
+    "title": "Bright Sunset",
+    "caption": "Sun bright as it starts to set.",
     "location": "Pass-a-Grille, FL",
-    "src": "photos/sample1.jpg"
+    "src": "03-7-26-1.jpg"
   },
   {
     "date": "2026-03-07",
-    "title": "Gulf Reflections",
-    "caption": "Still water, still mind.",
-    "location": "St. Pete Beach, FL",
-    "src": "photos/sample2.jpg"
+    "title": "Bright Sun with Cars",
+    "caption": "Parking at a premium for this view.",
+    "location": "Pass-a-Grille, FL",
+    "src": "03-7-26-2.jpg"
   },
   {
-    "date": "2026-03-06",
-    "title": "Pelican at Rest",
-    "caption": "He owned that piling like he paid rent.",
-    "location": "Pass-a-Grille Pier",
-    "src": "photos/sample3.jpg"
+    "date": "2026-03-07",
+    "title": "Sun with a Palm",
+    "caption": "Palm taking in the sun.",
+    "location": "Pass-a-Grille, FL",
+    "src": "03-7-26-3.jpg"
+  },
+  {
+    "date": "2026-03-07",
+    "title": "Blue sky and Beach goers",
+    "caption": "Beautiful views for the beachgoers.",
+    "location": "Pass-a-Grille, FL",
+    "src": "03-7-26-4.jpg"
+  },
+  {
+    "date": "2026-03-07",
+    "title": "The Best View",
+    "caption": "The best Grille Mark.",
+    "location": "Pass-a-Grille, FL",
+    "src": "03-7-26-5.jpg"
+  },
+  {
+    "date": "2026-03-07",
+    "title": "The Ladies",
+    "caption": "What a great group.",
+    "location": "Pass-a-Grille, FL",
+    "src": "03-7-26-6.jpg"
+  },
+  {
+    "date": "2026-03-07",
+    "title": "Ladies with a Sunset",
+    "caption": "Happy ladies.",
+    "location": "Pass-a-Grille, FL",
+    "src": "03-7-26-7.jpg"
+  },
+  {
+    "date": "2026-03-07",
+    "title": "Great Sunset",
+    "caption": "Until next time.",
+    "location": "Pass-a-Grille, FL",
+    "src": "03-7-26-8.jpg"
   }
 ]
