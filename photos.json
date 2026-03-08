@@ -1,0 +1,23 @@
+[
+  {
+    "date": "2026-03-08",
+    "title": "Pass-a-Grille Sunrise",
+    "caption": "Golden hour hits different on the Gulf Coast.",
+    "location": "Pass-a-Grille, FL",
+    "src": "photos/sample1.jpg"
+  },
+  {
+    "date": "2026-03-07",
+    "title": "Gulf Reflections",
+    "caption": "Still water, still mind.",
+    "location": "St. Pete Beach, FL",
+    "src": "photos/sample2.jpg"
+  },
+  {
+    "date": "2026-03-06",
+    "title": "Pelican at Rest",
+    "caption": "He owned that piling like he paid rent.",
+    "location": "Pass-a-Grille Pier",
+    "src": "photos/sample3.jpg"
+  }
+]

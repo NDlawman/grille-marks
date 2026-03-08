@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grille Marks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1a1614;
+      --paper: #f5f0ea;
+      --warm-mid: #c8b89a;
+      --accent: #b85c38;
+      --accent-soft: #e8d5c4;
+      --shadow: rgba(26,22,20,0.15);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── GRAIN OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid var(--warm-mid);
+      position: relative;
+    }
+
+    header::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 2px;
+      background: var(--accent);
+      margin: 1.2rem auto 0;
+    }
+
+    .site-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .site-tagline {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      font-weight: 300;
+      color: #6b5f57;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── CONTROLS ── */
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1.5rem 2rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: none;
+      border: 1px solid var(--warm-mid);
+      color: #6b5f57;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--paper);
+    }
+
+    #photo-count {
+      font-size: 0.78rem;
+      color: #9b8f87;
+      letter-spacing: 0.05em;
+      margin-left: 0.5rem;
+    }
+
+    /* ── GALLERY GRID ── */
+    .gallery {
+      columns: 3;
+      column-gap: 1.2rem;
+      padding: 0 2rem 4rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 900px) { .gallery { columns: 2; } }
+    @media (max-width: 550px) { .gallery { columns: 1; padding: 0 1rem 3rem; } }
+
+    .photo-card {
+      break-inside: avoid;
+      margin-bottom: 1.2rem;
+      position: relative;
+      cursor: pointer;
+      group: true;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .photo-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .photo-card:hover .card-overlay {
+      opacity: 1;
+    }
+
+    .photo-card:hover img {
+      transform: scale(1.02);
+    }
+
+    .card-img-wrap {
+      overflow: hidden;
+      position: relative;
+      background: #e0d5c8;
+    }
+
+    .photo-card img {
+      width: 100%;
+      display: block;
+      transition: transform 0.4s ease;
+      object-fit: cover;
+    }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(26,22,20,0.85) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.2rem;
+    }
+
+    .card-overlay .title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: #fff;
+      font-weight: 400;
+    }
+
+    .card-overlay .location {
+      font-size: 0.72rem;
+      color: var(--warm-mid);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+
+    .card-meta {
+      padding: 0.75rem 0 0.25rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    .card-caption {
+      font-size: 0.82rem;
+      color: #6b5f57;
+      font-style: italic;
+      line-height: 1.4;
+      flex: 1;
+      padding-right: 0.5rem;
+    }
+
+    .card-date {
+      font-size: 0.7rem;
+      color: var(--warm-mid);
+      white-space: nowrap;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── PLACEHOLDER CARD (for missing images) ── */
+    .photo-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #e8dfd4, #d5c9bb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #a0907f;
+      font-size: 2.5rem;
+    }
+
+    /* ── LIGHTBOX ── */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(15, 11, 9, 0.96);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    #lightbox.open {
+      display: flex;
+      animation: fadeIn 0.25s ease;
+    }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .lb-inner {
+      position: relative;
+      max-width: 1100px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    @media (max-width: 700px) {
+      .lb-inner { grid-template-columns: 1fr; }
+      .lb-info { order: 2; }
+    }
+
+    .lb-img-wrap {
+      position: relative;
+    }
+
+    #lb-image {
+      width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      display: block;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+    }
+
+    .lb-info {
+      color: var(--paper);
+    }
+
+    .lb-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.8rem;
+    }
+
+    #lb-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 0.8rem;
+    }
+
+    #lb-caption {
+      font-size: 0.9rem;
+      color: #c4b5a8;
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .lb-detail {
+      font-size: 0.75rem;
+      color: #7a6e66;
+      letter-spacing: 0.06em;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .lb-detail span { color: #a09088; }
+
+    .lb-nav {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 2rem;
+    }
+
+    .lb-btn {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #c4b5a8;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      border-radius: 2px;
+    }
+
+    .lb-btn:hover {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+
+    #lb-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: #7a6e66;
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0.4rem;
+      transition: color 0.2s;
+    }
+    #lb-close:hover { color: #fff; }
+
+    /* ── EMPTY STATE ── */
+    #empty-state {
+      display: none;
+      text-align: center;
+      padding: 5rem 2rem;
+      color: #9b8f87;
+    }
+
+    #empty-state .es-icon { font-size: 3rem; margin-bottom: 1rem; }
+    #empty-state p { font-style: italic; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--warm-mid);
+      font-size: 0.75rem;
+      color: #9b8f87;
+      letter-spacing: 0.05em;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ── LOADING ── */
+    #loading {
+      text-align: center;
+      padding: 4rem;
+      font-style: italic;
+      color: #9b8f87;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="site-eyebrow">Pass-a-Grille, FL &mdash; March 2026</div>
+    <h1>Grille <em>Marks</em></h1>
+    <p class="site-tagline">The impressions a place leaves behind.</p>
+  </header>
+
+  <div class="controls">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <span id="photo-count"></span>
+  </div>
+
+  <div id="loading">Loading gallery…</div>
+  <div id="empty-state">
+    <div class="es-icon">📷</div>
+    <p>No photos found for this filter.</p>
+  </div>
+
+  <div class="gallery" id="gallery"></div>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" role="dialog" aria-modal="true">
+    <button id="lb-close" aria-label="Close">&times;</button>
+    <div class="lb-inner">
+      <div class="lb-img-wrap">
+        <img id="lb-image" src="" alt="" />
+      </div>
+      <div class="lb-info">
+        <div class="lb-eyebrow">Grille Marks</div>
+        <h2 id="lb-title"></h2>
+        <p id="lb-caption"></p>
+        <div class="lb-detail">
+          <div>📍 <span id="lb-location"></span></div>
+          <div>🗓 <span id="lb-date"></span></div>
+        </div>
+        <div class="lb-nav">
+          <button class="lb-btn" id="lb-prev">← Prev</button>
+          <button class="lb-btn" id="lb-next">Next →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Grille Marks &mdash; Pass-a-Grille, FL &mdash; <a href="https://github.com" target="_blank">View on GitHub</a></p>
+  </footer>
+
+  <script>
+    let photos = [];
+    let filteredPhotos = [];
+    let currentIndex = 0;
+
+    function formatDate(dateStr) {
+      const d = new Date(dateStr + 'T12:00:00');
+      return d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    function buildLocationFilters() {
+      const locations = [...new Set(photos.map(p => p.location).filter(Boolean))];
+      const controls = document.querySelector('.controls');
+      const countEl = document.getElementById('photo-count');
+
+      // Clear existing location buttons
+      document.querySelectorAll('.filter-btn:not([data-filter="all"])').forEach(b => b.remove());
+
+      locations.forEach(loc => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.dataset.filter = loc;
+        btn.textContent = loc;
+        controls.insertBefore(btn, countEl);
+      });
+
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.dataset.filter;
+          filteredPhotos = filter === 'all' ? [...photos] : photos.filter(p => p.location === filter);
+          renderGallery();
+        });
+      });
+    }
+
+    function renderGallery() {
+      const gallery = document.getElementById('gallery');
+      const emptyState = document.getElementById('empty-state');
+      const countEl = document.getElementById('photo-count');
+
+      gallery.innerHTML = '';
+
+      if (filteredPhotos.length === 0) {
+        emptyState.style.display = 'block';
+        countEl.textContent = '';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+      countEl.textContent = `${filteredPhotos.length} photo${filteredPhotos.length !== 1 ? 's' : ''}`;
+
+      filteredPhotos.forEach((photo, i) => {
+        const card = document.createElement('div');
+        card.className = 'photo-card';
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', photo.title);
+
+        card.innerHTML = `
+          <div class="card-img-wrap">
+            <img
+              src="${photo.src}"
+              alt="${photo.title}"
+              loading="lazy"
+              onerror="this.parentElement.innerHTML='<div class=\\'photo-placeholder\\'>📷</div>'"
+            />
+            <div class="card-overlay">
+              <div class="title">${photo.title}</div>
+              ${photo.location ? `<div class="location">${photo.location}</div>` : ''}
+            </div>
+          </div>
+          <div class="card-meta">
+            <div class="card-caption">${photo.caption || ''}</div>
+            <div class="card-date">${photo.date}</div>
+          </div>
+        `;
+
+        card.addEventListener('click', () => openLightbox(i));
+        card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openLightbox(i); });
+        gallery.appendChild(card);
+
+        // Staggered entrance
+        setTimeout(() => card.classList.add('visible'), i * 60);
+      });
+    }
+
+    function openLightbox(index) {
+      currentIndex = index;
+      updateLightbox();
+      document.getElementById('lightbox').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+      const photo = filteredPhotos[currentIndex];
+      const img = document.getElementById('lb-image');
+      img.src = photo.src;
+      img.alt = photo.title;
+      img.onerror = () => { img.src = ''; img.alt = 'Image not available'; };
+      document.getElementById('lb-title').textContent = photo.title;
+      document.getElementById('lb-caption').textContent = photo.caption || '';
+      document.getElementById('lb-location').textContent = photo.location || '—';
+      document.getElementById('lb-date').textContent = formatDate(photo.date);
+    }
+
+    document.getElementById('lb-close').addEventListener('click', closeLightbox);
+    document.getElementById('lightbox').addEventListener('click', e => {
+      if (e.target === document.getElementById('lightbox')) closeLightbox();
+    });
+
+    document.getElementById('lb-prev').addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + filteredPhotos.length) % filteredPhotos.length;
+      updateLightbox();
+    });
+
+    document.getElementById('lb-next').addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % filteredPhotos.length;
+      updateLightbox();
+    });
+
+    document.addEventListener('keydown', e => {
+      const lb = document.getElementById('lightbox');
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') { currentIndex = (currentIndex - 1 + filteredPhotos.length) % filteredPhotos.length; updateLightbox(); }
+      if (e.key === 'ArrowRight') { currentIndex = (currentIndex + 1) % filteredPhotos.length; updateLightbox(); }
+    });
+
+    // ── INIT ──
+    async function init() {
+      try {
+        const res = await fetch('photos.json?v=' + Date.now());
+        if (!res.ok) throw new Error('Failed to load photos.json');
+        photos = await res.json();
+        // Sort newest first
+        photos.sort((a, b) => new Date(b.date) - new Date(a.date));
+        filteredPhotos = [...photos];
+        document.getElementById('loading').style.display = 'none';
+        buildLocationFilters();
+        renderGallery();
+      } catch (err) {
+        document.getElementById('loading').textContent = 'Could not load photos. Make sure photos.json exists.';
+        console.error(err);
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
