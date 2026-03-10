@@ -282,5 +282,95 @@
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
     "lon": -82.7372
+  },
+  {
+    "src": "IMG_0693.jpeg",
+    "title": "Grackle on Warning Sign",
+    "caption": "A grackle claims the high point of a warning sign while morning light catches the marsh grasses and calm bay at Pass-a-Grille.",
+    "location": "Pass-a-Grille, FL",
+    "date": "2026-03-10",
+    "lat": 27.683278,
+    "lon": -82.736381,
+    "gps_location_set": true
+  },
+  {
+    "src": "IMG_0697.jpeg",
+    "title": "Bird Over Morning Dunes",
+    "caption": "A bird takes flight over coastal homes and scrubby dunes as the morning sun rises above the barrier island horizon.",
+    "location": "Pass-a-Grille, FL",
+    "date": "2026-03-10",
+    "lat": 27.683364,
+    "lon": -82.738333,
+    "gps_location_set": true
+  },
+  {
+    "src": "IMG_0698.jpeg",
+    "title": "Parakeets Among Wildflowers",
+    "caption": "Monk parakeets forage among clusters of yellow beach wildflowers blooming across the white sand dunes of Pass-a-Grille.",
+    "location": "Pass-a-Grille, FL",
+    "date": "2026-03-10",
+    "lat": 27.684903,
+    "lon": -82.737944,
+    "gps_location_set": true
+  },
+  {
+    "src": "IMG_0699.jpeg",
+    "title": "Parakeets in a Palm",
+    "caption": "Two monk parakeets cling to the rough bark of a seaside palm, part of the colorful feral flocks that have made Pass-a-Grille their home.",
+    "location": "Pass-a-Grille, FL",
+    "date": "2026-03-10",
+    "lat": 27.684894,
+    "lon": -82.737939,
+    "gps_location_set": true
+  },
+  {
+    "src": "IMG_0702.jpeg",
+    "title": "Morning Shadow on the Dunes",
+    "caption": "A long morning shadow stretches across the scrubby dunes toward the Gulf, where sea oats and beach daisies hold the sand in place.",
+    "location": "Pass-a-Grille, FL",
+    "date": "2026-03-10",
+    "lat": 27.695442,
+    "lon": -82.737572,
+    "gps_location_set": true
+  },
+  {
+    "src": "IMG_0706.jpeg",
+    "title": "Historic Pass-A-Grille Sign",
+    "caption": "The ornate street sign of Historic Pass-A-Grille Way stands against a cloudless morning sky, marking the entrance to one of Florida's oldest beach communities.",
+    "location": "Pass-a-Grille, FL",
+    "date": "2026-03-10",
+    "lat": 27.68905,
+    "lon": -82.736053,
+    "gps_location_set": true
+  },
+  {
+    "src": "IMG_0709.jpeg",
+    "title": "Pelican on Dock Piling",
+    "caption": "A brown pelican stands guard on a weathered dock piling, the calm bay and distant condominiums stretching behind it in the soft morning light.",
+    "location": "Pass-a-Grille, FL",
+    "date": "2026-03-10",
+    "lat": 27.688689,
+    "lon": -82.736031,
+    "gps_location_set": true
+  },
+  {
+    "src": "IMG_0711.jpeg",
+    "title": "Pier Ruins at Morning Light",
+    "caption": "Pelicans perch in silhouette along the ruins of an old pier as the morning sun blazes a trail of light across the still bay.",
+    "location": "Pass-a-Grille, FL",
+    "date": "2026-03-10",
+    "lat": 27.688628,
+    "lon": -82.735992,
+    "gps_location_set": true
+  },
+  {
+    "src": "IMG_0712.jpeg",
+    "title": "Pelicans on the Old Pier",
+    "caption": "The remains of an old pier reach into the shimmering bay, its pilings claimed by a colony of pelicans on a bright March morning.",
+    "location": "Pass-a-Grille, FL",
+    "date": "2026-03-10",
+    "lat": 27.688631,
+    "lon": -82.736,
+    "gps_location_set": true
   }
 ]
