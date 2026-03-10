@@ -6,6 +6,7 @@
   <title>Grille Marks</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <style>
     :root {
       --ink: #1a1614;
@@ -85,6 +86,37 @@
       letter-spacing: 0.03em;
     }
 
+    /* ── VIEW TABS ── */
+    .view-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      padding: 1.2rem 2rem 0;
+      border-bottom: 1px solid var(--warm-mid);
+    }
+
+    .view-tab {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: #9b8f87;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.6rem 1.5rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: -1px;
+    }
+
+    .view-tab:hover { color: var(--ink); }
+    .view-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
     /* ── CONTROLS ── */
     .controls {
       display: flex;
@@ -140,7 +172,6 @@
       margin-bottom: 1.2rem;
       position: relative;
       cursor: pointer;
-      group: true;
       opacity: 0;
       transform: translateY(16px);
       transition: opacity 0.5s ease, transform 0.5s ease;
@@ -151,13 +182,8 @@
       transform: translateY(0);
     }
 
-    .photo-card:hover .card-overlay {
-      opacity: 1;
-    }
-
-    .photo-card:hover img {
-      transform: scale(1.02);
-    }
+    .photo-card:hover .card-overlay { opacity: 1; }
+    .photo-card:hover img { transform: scale(1.02); }
 
     .card-img-wrap {
       overflow: hidden;
@@ -223,7 +249,7 @@
       letter-spacing: 0.04em;
     }
 
-    /* ── PLACEHOLDER CARD (for missing images) ── */
+    /* ── PLACEHOLDER CARD ── */
     .photo-placeholder {
       width: 100%;
       aspect-ratio: 4/3;
@@ -235,12 +261,94 @@
       font-size: 2.5rem;
     }
 
+    /* ── MAP VIEW ── */
+    #map-view {
+      display: none;
+      padding: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    #map-view.active { display: block; }
+
+    #map-container {
+      width: 100%;
+      height: 520px;
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px var(--shadow);
+      border: 1px solid var(--warm-mid);
+    }
+
+    .map-legend {
+      margin-top: 1rem;
+      font-size: 0.78rem;
+      color: #9b8f87;
+      text-align: center;
+      letter-spacing: 0.05em;
+      font-style: italic;
+    }
+
+    /* Leaflet popup styled to match site */
+    .leaflet-popup-content-wrapper {
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: 4px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+      font-family: 'DM Sans', sans-serif;
+    }
+    .leaflet-popup-tip { background: var(--ink); }
+    .leaflet-popup-content { margin: 1rem 1.2rem; }
+    .popup-location {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.3rem;
+    }
+    .popup-count {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 0.8rem;
+    }
+    .popup-thumbs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 0.8rem;
+    }
+    .popup-thumbs img {
+      width: 52px;
+      height: 52px;
+      object-fit: cover;
+      border-radius: 2px;
+      opacity: 0.9;
+    }
+    .popup-btn {
+      display: block;
+      width: 100%;
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.5rem;
+      border-radius: 2px;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .popup-btn:hover { background: #9a4a2c; }
+
     /* ── LIGHTBOX ── */
     #lightbox {
       display: none;
       position: fixed;
       inset: 0;
-      z-index: 999;
+      z-index: 9999;
       background: rgba(15, 11, 9, 0.96);
       align-items: center;
       justify-content: center;
@@ -269,10 +377,6 @@
       .lb-info { order: 2; }
     }
 
-    .lb-img-wrap {
-      position: relative;
-    }
-
     #lb-image {
       width: 100%;
       max-height: 80vh;
@@ -281,9 +385,7 @@
       box-shadow: 0 40px 80px rgba(0,0,0,0.6);
     }
 
-    .lb-info {
-      color: var(--paper);
-    }
+    .lb-info { color: var(--paper); }
 
     .lb-eyebrow {
       font-size: 0.68rem;
@@ -381,10 +483,7 @@
       letter-spacing: 0.05em;
     }
 
-    footer a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+    footer a { color: var(--accent); text-decoration: none; }
 
     /* ── LOADING ── */
     #loading {
@@ -393,28 +492,45 @@
       font-style: italic;
       color: #9b8f87;
     }
+
+    /* ── GALLERY VIEW WRAPPER ── */
+    #gallery-view { display: block; }
+    #gallery-view.hidden { display: none; }
   </style>
 </head>
 <body>
 
   <header>
-    <div class="site-eyebrow">Pass-a-Grille, FL &mdash; March 2026</div>
+    <div class="site-eyebrow">Pass-a-Grille &amp; Beyond &mdash; 2026</div>
     <h1>Grille <em>Marks</em></h1>
     <p class="site-tagline">The impressions a place leaves behind.</p>
   </header>
 
-  <div class="controls">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <span id="photo-count"></span>
+  <!-- VIEW TABS -->
+  <div class="view-tabs">
+    <button class="view-tab active" data-view="gallery">Gallery</button>
+    <button class="view-tab" data-view="map">Map</button>
   </div>
 
-  <div id="loading">Loading gallery…</div>
-  <div id="empty-state">
-    <div class="es-icon">📷</div>
-    <p>No photos found for this filter.</p>
+  <!-- GALLERY VIEW -->
+  <div id="gallery-view">
+    <div class="controls">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <span id="photo-count"></span>
+    </div>
+    <div id="loading">Loading gallery…</div>
+    <div id="empty-state">
+      <div class="es-icon">📷</div>
+      <p>No photos found for this filter.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
   </div>
 
-  <div class="gallery" id="gallery"></div>
+  <!-- MAP VIEW -->
+  <div id="map-view">
+    <div id="map-container"></div>
+    <p class="map-legend">Each pin represents a location — click to see photos taken there.</p>
+  </div>
 
   <!-- LIGHTBOX -->
   <div id="lightbox" role="dialog" aria-modal="true">
@@ -440,25 +556,125 @@
   </div>
 
   <footer>
-    <p>Grille Marks &mdash; Pass-a-Grille, FL &mdash; <a href="https://github.com" target="_blank">View on GitHub</a></p>
+    <p>Grille Marks &mdash; <a href="https://github.com/NDlawman/grille-marks" target="_blank">View on GitHub</a></p>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     let photos = [];
     let filteredPhotos = [];
     let currentIndex = 0;
+    let map = null;
 
     function formatDate(dateStr) {
       const d = new Date(dateStr + 'T12:00:00');
       return d.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     }
 
+    // ── VIEW TABS ──
+    document.querySelectorAll('.view-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const view = tab.dataset.view;
+        document.getElementById('gallery-view').classList.toggle('hidden', view !== 'gallery');
+        document.getElementById('map-view').classList.toggle('active', view === 'map');
+        if (view === 'map') initMap();
+      });
+    });
+
+    // ── MAP ──
+    function initMap() {
+      if (map) { map.invalidateSize(); return; }
+
+      map = L.map('map-container', { zoomControl: true, scrollWheelZoom: false });
+
+      // Warm, muted CartoDB Positron tiles
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors © <a href="https://carto.com/">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 19
+      }).addTo(map);
+
+      // Group photos by location
+      const locationGroups = {};
+      photos.forEach(photo => {
+        if (photo.lat == null || photo.lon == null) return;
+        const key = photo.location || 'Unknown';
+        if (!locationGroups[key]) {
+          locationGroups[key] = { lat: photo.lat, lon: photo.lon, photos: [] };
+        }
+        locationGroups[key].photos.push(photo);
+      });
+
+      const bounds = [];
+
+      // Custom marker icon using accent color
+      const markerIcon = L.divIcon({
+        className: '',
+        html: `<div style="
+          width:14px; height:14px;
+          background:#b85c38;
+          border:2px solid #fff;
+          border-radius:50%;
+          box-shadow:0 2px 8px rgba(0,0,0,0.35);
+        "></div>`,
+        iconSize: [14, 14],
+        iconAnchor: [7, 7],
+        popupAnchor: [0, -10]
+      });
+
+      Object.entries(locationGroups).forEach(([locName, group]) => {
+        bounds.push([group.lat, group.lon]);
+        const marker = L.marker([group.lat, group.lon], { icon: markerIcon }).addTo(map);
+
+        const thumbs = group.photos.slice(0, 3).map(p =>
+          `<img src="${p.src}" alt="${p.title}" />`
+        ).join('');
+
+        const count = group.photos.length;
+        const popupHTML = `
+          <div class="popup-location">${locName}</div>
+          <div class="popup-count">${count} photo${count !== 1 ? 's' : ''}</div>
+          ${thumbs ? `<div class="popup-thumbs">${thumbs}</div>` : ''}
+          <button class="popup-btn" onclick="filterByLocation('${locName.replace(/'/g,"\\'")}')">View Photos →</button>
+        `;
+
+        marker.bindPopup(popupHTML, { maxWidth: 220 });
+      });
+
+      if (bounds.length === 1) {
+        map.setView(bounds[0], 14);
+      } else if (bounds.length > 1) {
+        map.fitBounds(bounds, { padding: [60, 60] });
+      } else {
+        map.setView([27.688, -82.737], 14);
+      }
+    }
+
+    function filterByLocation(location) {
+      // Switch to gallery tab and filter by location
+      document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector('.view-tab[data-view="gallery"]').classList.add('active');
+      document.getElementById('gallery-view').classList.remove('hidden');
+      document.getElementById('map-view').classList.remove('active');
+
+      // Activate the matching filter button
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.filter === location);
+      });
+
+      filteredPhotos = photos.filter(p => p.location === location);
+      renderGallery();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ── GALLERY FILTERS ──
     function buildLocationFilters() {
       const locations = [...new Set(photos.map(p => p.location).filter(Boolean))];
       const controls = document.querySelector('.controls');
       const countEl = document.getElementById('photo-count');
 
-      // Clear existing location buttons
       document.querySelectorAll('.filter-btn:not([data-filter="all"])').forEach(b => b.remove());
 
       locations.forEach(loc => {
@@ -480,6 +696,7 @@
       });
     }
 
+    // ── GALLERY RENDER ──
     function renderGallery() {
       const gallery = document.getElementById('gallery');
       const emptyState = document.getElementById('empty-state');
@@ -525,12 +742,11 @@
         card.addEventListener('click', () => openLightbox(i));
         card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openLightbox(i); });
         gallery.appendChild(card);
-
-        // Staggered entrance
         setTimeout(() => card.classList.add('visible'), i * 60);
       });
     }
 
+    // ── LIGHTBOX ──
     function openLightbox(index) {
       currentIndex = index;
       updateLightbox();
@@ -559,17 +775,14 @@
     document.getElementById('lightbox').addEventListener('click', e => {
       if (e.target === document.getElementById('lightbox')) closeLightbox();
     });
-
     document.getElementById('lb-prev').addEventListener('click', () => {
       currentIndex = (currentIndex - 1 + filteredPhotos.length) % filteredPhotos.length;
       updateLightbox();
     });
-
     document.getElementById('lb-next').addEventListener('click', () => {
       currentIndex = (currentIndex + 1) % filteredPhotos.length;
       updateLightbox();
     });
-
     document.addEventListener('keydown', e => {
       const lb = document.getElementById('lightbox');
       if (!lb.classList.contains('open')) return;
@@ -584,7 +797,6 @@
         const res = await fetch('photos.json?v=' + Date.now());
         if (!res.ok) throw new Error('Failed to load photos.json');
         photos = await res.json();
-        // Sort newest first
         photos.sort((a, b) => new Date(b.date) - new Date(a.date));
         filteredPhotos = [...photos];
         document.getElementById('loading').style.display = 'none';
