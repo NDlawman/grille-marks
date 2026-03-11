@@ -496,11 +496,152 @@
     /* ── GALLERY VIEW WRAPPER ── */
     #gallery-view { display: block; }
     #gallery-view.hidden { display: none; }
+
+    /* ── SHARE BUTTON IN HEADER ── */
+    .header-share-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      background: none;
+      border: 1px solid var(--warm-mid);
+      color: #6b5f57;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.9rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .header-share-btn:hover {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--paper);
+    }
+    @media (max-width: 550px) { .header-share-btn { position: static; margin-top: 1rem; } }
+
+    /* ── CARD DOWNLOAD BUTTON ── */
+    .card-download {
+      position: absolute;
+      top: 0.6rem;
+      right: 0.6rem;
+      background: rgba(26,22,20,0.65);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(255,255,255,0.85);
+      font-size: 0.7rem;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.06em;
+      padding: 0.28rem 0.55rem;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      opacity: 0;
+      transition: opacity 0.25s, background 0.2s;
+      z-index: 2;
+      line-height: 1.4;
+    }
+    .photo-card:hover .card-download { opacity: 1; }
+    .card-download:hover { background: rgba(26,22,20,0.92); color: #fff; }
+
+    /* ── SHARE MODAL ── */
+    #share-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(15,11,9,0.92);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    #share-modal.open { display: flex; animation: fadeIn 0.2s ease; }
+
+    .modal-inner {
+      background: var(--paper);
+      max-width: 480px;
+      width: 100%;
+      padding: 2.5rem;
+      border-radius: 4px;
+      position: relative;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.4rem;
+      color: #9b8f87;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0.3rem;
+      transition: color 0.2s;
+    }
+    .modal-close:hover { color: var(--ink); }
+    .modal-eyebrow {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+    .modal-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .modal-body {
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: #6b5f57;
+      margin-bottom: 1.5rem;
+    }
+    .modal-body strong { color: var(--ink); }
+    .modal-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--accent);
+      border: none;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.4rem;
+      border-radius: 2px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: #9a4a2c; }
+    .btn-secondary {
+      background: none;
+      border: 1px solid var(--warm-mid);
+      color: #6b5f57;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.65rem 1.4rem;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
   </style>
 </head>
 <body>
 
   <header>
+    <button class="header-share-btn" id="open-share-modal">+ Share a Photo</button>
     <div class="site-eyebrow">Pass-a-Grille &amp; Beyond &mdash; 2026</div>
     <h1>Grille <em>Marks</em></h1>
     <p class="site-tagline">The impressions a place leaves behind.</p>
@@ -551,6 +692,27 @@
           <button class="lb-btn" id="lb-prev">← Prev</button>
           <button class="lb-btn" id="lb-next">Next →</button>
         </div>
+        <div class="lb-nav" style="margin-top:0.5rem;">
+          <a class="lb-btn" id="lb-download" href="" download title="Download this photo">↓ Download</a>
+          <a class="lb-btn" id="lb-request" href="" title="Request full-size original from Jay">✉ Request Original</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHARE MODAL -->
+  <div id="share-modal" role="dialog" aria-modal="true" aria-labelledby="share-modal-title">
+    <div class="modal-inner">
+      <button class="modal-close" id="share-close" aria-label="Close">&times;</button>
+      <div class="modal-eyebrow">Contribute</div>
+      <h2 class="modal-title" id="share-modal-title">Share a Photo</h2>
+      <p class="modal-body">
+        Have a photo from Pass-a-Grille, Gulfport, or the surrounding area? We'd love to consider it for the collection.<br><br>
+        Email your photo to <strong>ndlawman@gmail.com</strong> with the subject line <strong>"Photo Submission"</strong> and include where and when it was taken. All submissions are reviewed personally.
+      </p>
+      <div class="modal-actions">
+        <a class="btn-primary" href="mailto:ndlawman@gmail.com?subject=Photo%20Submission&body=Hi%20Jay%2C%0A%0AHere%20is%20my%20photo%20submission%20for%20Grille%20Marks.%0A%0ALocation%3A%20%0ADate%20taken%3A%20%0ADescription%3A%20%0A%0APlease%20find%20my%20photo%20attached.">Open Email</a>
+        <button class="btn-secondary" id="share-cancel">Cancel</button>
       </div>
     </div>
   </div>
@@ -732,6 +894,7 @@
               <div class="title">${photo.title}</div>
               ${photo.location ? `<div class="location">${photo.location}</div>` : ''}
             </div>
+            <a class="card-download" href="${photo.src}" download="${photo.title}" title="Download photo" onclick="event.stopPropagation()">↓</a>
           </div>
           <div class="card-meta">
             <div class="card-caption">${photo.caption || ''}</div>
@@ -769,6 +932,22 @@
       document.getElementById('lb-caption').textContent = photo.caption || '';
       document.getElementById('lb-location').textContent = photo.location || '—';
       document.getElementById('lb-date').textContent = formatDate(photo.date);
+
+      // Wire up download button
+      const dlBtn = document.getElementById('lb-download');
+      dlBtn.href = photo.src;
+      dlBtn.setAttribute('download', photo.title || 'photo');
+
+      // Wire up request original button
+      const subject = encodeURIComponent('Full Size Request: ' + photo.title);
+      const body = encodeURIComponent(
+        'Hi Jay,\n\nI\'d love to get the full-size original of the following photo:\n\n'
+        + 'Title: ' + photo.title + '\n'
+        + 'Date: ' + photo.date + '\n'
+        + (photo.location ? 'Location: ' + photo.location + '\n' : '')
+        + '\nThank you!'
+      );
+      document.getElementById('lb-request').href = 'mailto:ndlawman@gmail.com?subject=' + subject + '&body=' + body;
     }
 
     document.getElementById('lb-close').addEventListener('click', closeLightbox);
@@ -809,6 +988,25 @@
     }
 
     init();
+
+    // ── SHARE MODAL ──
+    function openShareModal() {
+      document.getElementById('share-modal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeShareModal() {
+      document.getElementById('share-modal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.getElementById('open-share-modal').addEventListener('click', openShareModal);
+    document.getElementById('share-close').addEventListener('click', closeShareModal);
+    document.getElementById('share-cancel').addEventListener('click', closeShareModal);
+    document.getElementById('share-modal').addEventListener('click', e => {
+      if (e.target === document.getElementById('share-modal')) closeShareModal();
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && document.getElementById('share-modal').classList.contains('open')) closeShareModal();
+    });
   </script>
 </body>
 </html>
