@@ -372,5 +372,25 @@
     "lat": 27.688631,
     "lon": -82.736,
     "gps_location_set": true
+  },
+  {
+    "src": "Pass-a-grille March 26-26.jpg",
+    "title": "Macaw Mural, Gulfport",
+    "caption": "A vivid street mural of macaws adorns the side of a light blue building in Gulfport's arts district, bringing the tropics to life on a sunny afternoon.",
+    "location": "Gulfport, FL",
+    "date": "2026-03-26",
+    "lat": 27.7473,
+    "lon": -82.7084,
+    "gps_location_set": false
+  },
+  {
+    "src": "Pass-a-grille March 26-27.jpg",
+    "title": "Sculpture at Gulfport Public Library",
+    "caption": "A rusty kinetic sculpture of gears and a rising sun stands outside the Gulfport Public Library, one of the small city's many unexpected artistic touches.",
+    "location": "Gulfport, FL",
+    "date": "2026-03-26",
+    "lat": 27.7476,
+    "lon": -82.7082,
+    "gps_location_set": false
   }
 ]
