@@ -4,6 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Grille Marks</title>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GW9WTCBWSD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-GW9WTCBWSD');
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -894,7 +903,7 @@
               <div class="title">${photo.title}</div>
               ${photo.location ? `<div class="location">${photo.location}</div>` : ''}
             </div>
-            <a class="card-download" href="${photo.src}" download="${photo.title}" title="Download photo" onclick="event.stopPropagation()">↓</a>
+            <a class="card-download" href="${photo.src}" download="${photo.title}" title="Download photo" onclick="event.stopPropagation(); gtag('event', 'file_download', { file_name: '${photo.src}', link_text: '${photo.title}', method: 'card_button' });">↓</a>
           </div>
           <div class="card-meta">
             <div class="card-caption">${photo.caption || ''}</div>
@@ -937,6 +946,11 @@
       const dlBtn = document.getElementById('lb-download');
       dlBtn.href = photo.src;
       dlBtn.setAttribute('download', photo.title || 'photo');
+      dlBtn.onclick = () => gtag('event', 'file_download', {
+        file_name: photo.src,
+        link_text: photo.title,
+        method: 'lightbox_button'
+      });
 
       // Wire up request original button
       const subject = encodeURIComponent('Full Size Request: ' + photo.title);
@@ -947,7 +961,12 @@
         + (photo.location ? 'Location: ' + photo.location + '\n' : '')
         + '\nThank you!'
       );
-      document.getElementById('lb-request').href = 'mailto:ndlawman@gmail.com?subject=' + subject + '&body=' + body;
+      const reqBtn = document.getElementById('lb-request');
+      reqBtn.href = 'mailto:ndlawman@gmail.com?subject=' + subject + '&body=' + body;
+      reqBtn.onclick = () => gtag('event', 'request_original', {
+        file_name: photo.src,
+        link_text: photo.title
+      });
     }
 
     document.getElementById('lb-close').addEventListener('click', closeLightbox);
@@ -993,6 +1012,7 @@
     function openShareModal() {
       document.getElementById('share-modal').classList.add('open');
       document.body.style.overflow = 'hidden';
+      gtag('event', 'share_modal_open');
     }
     function closeShareModal() {
       document.getElementById('share-modal').classList.remove('open');
