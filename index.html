@@ -661,6 +661,34 @@
       transition: all 0.2s;
     }
     .btn-secondary:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  /* ── OFF THE GRILLE LINK ── */
+  .off-grille-link {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background: #e8c87a;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.72rem;
+    font-weight: 500;
+    padding: 0.55rem 0.9rem 0.55rem 0.75rem;
+    transform: rotate(1.5deg);
+    box-shadow: 2px 4px 10px rgba(26,22,20,0.2), inset 0 -3px 0 rgba(0,0,0,0.06);
+    display: inline-block;
+    transition: transform 0.2s, box-shadow 0.2s;
+    line-height: 1.5;
+    max-width: 130px;
+  }
+  .off-grille-link:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 3px 6px 18px rgba(26,22,20,0.3);
+  }
+  .off-grille-link .otg-label {
+    font-size: 0.82rem;
+    display: block;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
   </style>
 </head>
 <body>
@@ -669,6 +697,10 @@
     <div class="site-eyebrow">Pass-a-Grille &amp; Beyond &mdash; 2026</div>
     <h1>Grille <em>Marks</em></h1>
     <p class="site-tagline">The impressions a place leaves behind.</p>
+    <a href="https://ndlawman.github.io/off-the-grille" class="off-grille-link" target="_blank">
+      <span class="otg-label">🔥 Off the Grille</span>
+      the other one
+    </a>
   </header>
 
   <!-- VIEW TABS -->
