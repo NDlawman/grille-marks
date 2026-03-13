@@ -234,8 +234,17 @@
       margin-top: 0.2rem;
     }
 
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--ink);
+      padding: 0.7rem 0 0.1rem;
+      line-height: 1.25;
+    }
+
     .card-meta {
-      padding: 0.75rem 0 0.25rem;
+      padding: 0.2rem 0 0.25rem;
       display: flex;
       align-items: baseline;
       justify-content: space-between;
@@ -954,6 +963,7 @@
             </div>
             <a class="card-download" href="${photo.src}" download="${photo.title}" title="Download photo" onclick="event.stopPropagation(); gtag('event', 'file_download', { file_name: '${photo.src}', link_text: '${photo.title}', method: 'card_button' });">↓</a>
           </div>
+          <div class="card-title">${photo.title}</div>
           <div class="card-meta">
             <div class="card-caption">${photo.caption || ''}</div>
             <div class="card-date">${photo.date}</div>
