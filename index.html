@@ -258,6 +258,13 @@
       letter-spacing: 0.04em;
     }
 
+    .card-credit {
+      font-size: 0.68rem;
+      color: var(--warm-mid);
+      font-style: italic;
+      padding: 0.15rem 0 0.3rem;
+    }
+
     /* ── PLACEHOLDER CARD ── */
     .photo-placeholder {
       width: 100%;
@@ -705,6 +712,7 @@
         <div class="lb-detail">
           <div>📍 <span id="lb-location"></span></div>
           <div>🗓 <span id="lb-date"></span></div>
+          <div id="lb-photographer-wrap" style="display:none">📷 <span id="lb-photographer"></span></div>
         </div>
         <div class="lb-nav">
           <button class="lb-btn" id="lb-prev">← Prev</button>
@@ -918,6 +926,7 @@
             <div class="card-caption">${photo.caption || ''}</div>
             <div class="card-date">${photo.date}</div>
           </div>
+          ${photo.photographer ? `<div class="card-credit">📷 ${photo.photographer}</div>` : ''}
         `;
 
         card.addEventListener('click', () => openLightbox(i));
@@ -950,6 +959,13 @@
       document.getElementById('lb-caption').textContent = photo.caption || '';
       document.getElementById('lb-location').textContent = photo.location || '—';
       document.getElementById('lb-date').textContent = formatDate(photo.date);
+      const photographerWrap = document.getElementById('lb-photographer-wrap');
+      if (photo.photographer) {
+        document.getElementById('lb-photographer').textContent = photo.photographer;
+        photographerWrap.style.display = '';
+      } else {
+        photographerWrap.style.display = 'none';
+      }
 
       // Wire up download button
       const dlBtn = document.getElementById('lb-download');

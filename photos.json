@@ -6,7 +6,8 @@
     "location": "Pass-a-Grille, FL",
     "src": "03-7-26-1.jpg",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "date": "2026-03-07",
@@ -15,7 +16,8 @@
     "location": "Pass-a-Grille, FL",
     "src": "03-7-26-2.jpg",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "date": "2026-03-07",
@@ -24,7 +26,8 @@
     "location": "Pass-a-Grille, FL",
     "src": "03-7-26-3.jpg",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "date": "2026-03-07",
@@ -33,7 +36,8 @@
     "location": "Pass-a-Grille, FL",
     "src": "03-7-26-4.jpg",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "date": "2026-03-07",
@@ -42,7 +46,8 @@
     "location": "Pass-a-Grille, FL",
     "src": "03-7-26-5.jpg",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "date": "2026-03-07",
@@ -51,7 +56,8 @@
     "location": "Pass-a-Grille, FL",
     "src": "03-7-26-6.jpg",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "date": "2026-03-07",
@@ -60,7 +66,8 @@
     "location": "Pass-a-Grille, FL",
     "src": "03-7-26-7.jpg",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "date": "2026-03-07",
@@ -69,7 +76,8 @@
     "location": "Pass-a-Grille, FL",
     "src": "03-7-26-8.jpg",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "date": "2026-03-09",
@@ -79,7 +87,8 @@
     "src": "Pass-a-grille March 9-1.jpg",
     "lat": 27.687839,
     "lon": -82.737792,
-    "gps_location_set": true
+    "gps_location_set": true,
+    "photographer": "Jay"
   },
   {
     "date": "2026-03-09",
@@ -89,7 +98,8 @@
     "src": "Pass-a-grille March 9-2.jpg",
     "lat": 27.68865,
     "lon": -82.737861,
-    "gps_location_set": true
+    "gps_location_set": true,
+    "photographer": "Jay"
   },
   {
     "date": "2026-03-09",
@@ -99,7 +109,8 @@
     "src": "Pass-a-grille March 9-3.jpg",
     "lat": 27.688028,
     "lon": -82.735803,
-    "gps_location_set": true
+    "gps_location_set": true,
+    "photographer": "Jay"
   },
   {
     "date": "2026-03-09",
@@ -109,7 +120,8 @@
     "src": "Pass-a-grille March 9-4.jpg",
     "lat": 27.687461,
     "lon": -82.736258,
-    "gps_location_set": true
+    "gps_location_set": true,
+    "photographer": "Jay"
   },
   {
     "date": "2026-03-09",
@@ -118,7 +130,8 @@
     "location": "Pass-a-Grille, FL",
     "src": "Pass-a-grille March 9-5.jpg",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "date": "2026-03-09",
@@ -128,7 +141,8 @@
     "src": "Pass-a-grille March 9-6.jpg",
     "lat": 27.687375,
     "lon": -82.738044,
-    "gps_location_set": true
+    "gps_location_set": true,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-9.jpg",
@@ -137,7 +151,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-10.jpg",
@@ -146,7 +161,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-11.jpg",
@@ -155,7 +171,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-12.jpg",
@@ -164,7 +181,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-13.jpg",
@@ -173,7 +191,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-14.jpg",
@@ -182,7 +201,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-15.jpg",
@@ -191,7 +211,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-16.jpg",
@@ -200,7 +221,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-17.jpg",
@@ -209,7 +231,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-18.jpg",
@@ -218,7 +241,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-19.jpg",
@@ -227,7 +251,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-20.jpg",
@@ -236,7 +261,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-21.jpg",
@@ -245,7 +271,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-22.jpg",
@@ -254,7 +281,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-23.jpg",
@@ -263,7 +291,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-24.jpg",
@@ -272,7 +301,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-25.jpg",
@@ -281,7 +311,8 @@
     "date": "2026-03-10",
     "location": "Pass-a-Grille, FL",
     "lat": 27.688,
-    "lon": -82.7372
+    "lon": -82.7372,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 10-1.jpg",
@@ -291,7 +322,8 @@
     "date": "2026-03-10",
     "lat": 27.683278,
     "lon": -82.736381,
-    "gps_location_set": true
+    "gps_location_set": true,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 10-2.jpg",
@@ -301,7 +333,8 @@
     "date": "2026-03-10",
     "lat": 27.683364,
     "lon": -82.738333,
-    "gps_location_set": true
+    "gps_location_set": true,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 10-3.jpg",
@@ -311,7 +344,8 @@
     "date": "2026-03-10",
     "lat": 27.684903,
     "lon": -82.737944,
-    "gps_location_set": true
+    "gps_location_set": true,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 10-4.jpg",
@@ -321,7 +355,8 @@
     "date": "2026-03-10",
     "lat": 27.684894,
     "lon": -82.737939,
-    "gps_location_set": true
+    "gps_location_set": true,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 10-5.jpg",
@@ -331,7 +366,8 @@
     "date": "2026-03-10",
     "lat": 27.695442,
     "lon": -82.737572,
-    "gps_location_set": true
+    "gps_location_set": true,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 10-6.jpg",
@@ -341,7 +377,8 @@
     "date": "2026-03-10",
     "lat": 27.68905,
     "lon": -82.736053,
-    "gps_location_set": true
+    "gps_location_set": true,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 10-7.jpg",
@@ -351,7 +388,8 @@
     "date": "2026-03-10",
     "lat": 27.688689,
     "lon": -82.736031,
-    "gps_location_set": true
+    "gps_location_set": true,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 10-8.jpg",
@@ -361,7 +399,8 @@
     "date": "2026-03-10",
     "lat": 27.688628,
     "lon": -82.735992,
-    "gps_location_set": true
+    "gps_location_set": true,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 10-9.jpg",
@@ -371,7 +410,8 @@
     "date": "2026-03-10",
     "lat": 27.688631,
     "lon": -82.736,
-    "gps_location_set": true
+    "gps_location_set": true,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-26.jpg",
@@ -381,7 +421,8 @@
     "date": "2026-03-26",
     "lat": 27.7473,
     "lon": -82.7084,
-    "gps_location_set": false
+    "gps_location_set": false,
+    "photographer": "Jay"
   },
   {
     "src": "Pass-a-grille March 26-27.jpg",
@@ -391,6 +432,107 @@
     "date": "2026-03-26",
     "lat": 27.7476,
     "lon": -82.7082,
-    "gps_location_set": false
+    "gps_location_set": false,
+    "photographer": "Jay"
+  },
+  {
+    "date": "2026-03-11",
+    "title": "Moon and Tide",
+    "caption": "Caught between day and night, the moon rose over the water as the horizon still glowed.",
+    "location": "Pass-a-Grille, FL",
+    "src": "marie-moon-over-water.jpg",
+    "lat": 27.688,
+    "lon": -82.7372,
+    "photographer": "Marie"
+  },
+  {
+    "date": "2026-03-11",
+    "title": "Gulf Glow",
+    "caption": "That last moment before the sun slips below the water. You can't plan for it \u2014 you just have to be there.",
+    "location": "Pass-a-Grille, FL",
+    "src": "marie-gulf-sunset.jpg",
+    "lat": 27.688,
+    "lon": -82.7372,
+    "photographer": "Marie"
+  },
+  {
+    "date": "2026-03-11",
+    "title": "Front Row Seats",
+    "caption": "The beach fills up every evening for the same show. Nobody minds.",
+    "location": "Pass-a-Grille, FL",
+    "src": "marie-beach-sunset.jpg",
+    "lat": 27.688,
+    "lon": -82.7372,
+    "photographer": "Marie"
+  },
+  {
+    "date": "2026-03-11",
+    "title": "Welcome Home",
+    "caption": "On the beautiful Gulf of Mexico. The sign means it.",
+    "location": "St. Pete Beach, FL",
+    "src": "marie-welcome-sign.jpg",
+    "lat": 27.725,
+    "lon": -82.74,
+    "photographer": "Marie"
+  },
+  {
+    "date": "2026-03-12",
+    "title": "Blue Sky, Better Company",
+    "caption": "The Gulf put on a perfect backdrop. They didn't need any help.",
+    "location": "Pass-a-Grille, FL",
+    "src": "debbie-beach-selfie.jpg",
+    "lat": 27.688,
+    "lon": -82.7372,
+    "photographer": "Debbie"
+  },
+  {
+    "date": "2026-03-12",
+    "title": "Flamingo Friends",
+    "caption": "The flamingo didn't move. It understood the assignment.",
+    "location": "Pass-a-Grille, FL",
+    "src": "debbie-flamingo-selfie.jpg",
+    "lat": 27.688,
+    "lon": -82.7372,
+    "photographer": "Debbie"
+  },
+  {
+    "date": "2026-03-12",
+    "title": "The Way Through",
+    "caption": "Stone path, salt air, palm shade. There are worse ways to spend an afternoon.",
+    "location": "Pass-a-Grille, FL",
+    "src": "debbie-palm-path.jpg",
+    "lat": 27.688,
+    "lon": -82.7372,
+    "photographer": "Debbie"
+  },
+  {
+    "date": "2026-03-12",
+    "title": "Peak Sunshine",
+    "caption": "The Gulf is somewhere in those eyes. They knew exactly where they were.",
+    "location": "Pass-a-Grille, FL",
+    "src": "debbie-couple-sunshine.jpg",
+    "lat": 27.688,
+    "lon": -82.7372,
+    "photographer": "Debbie"
+  },
+  {
+    "date": "2026-03-12",
+    "title": "Palm Silhouette",
+    "caption": "One palm tree. One perfect hour. The Gulf did the rest.",
+    "location": "Pass-a-Grille, FL",
+    "src": "debbie-golden-sunset.jpg",
+    "lat": 27.688,
+    "lon": -82.7372,
+    "photographer": "Debbie"
+  },
+  {
+    "date": "2026-03-12",
+    "title": "Passing Through",
+    "caption": "A whole world on the move, seen from the shore. It doesn't stop.",
+    "location": "Pass-a-Grille, FL",
+    "src": "debbie-cruise-ship.jpg",
+    "lat": 27.688,
+    "lon": -82.7372,
+    "photographer": "Debbie"
   }
 ]
