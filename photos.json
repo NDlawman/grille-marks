@@ -536,28 +536,6 @@
     "photographer": "Debbie"
   },
   {
-    "src": "Pass-a-grille March 11-1.jpg",
-    "title": "Feet Up, Gulf Out",
-    "caption": "A visitor kicks back on a sun-drenched balcony, feet propped on the railing and a coffee mug close at hand, as the turquoise Gulf stretches out to the horizon on a brilliant late morning.",
-    "location": "Pass-a-Grille, FL",
-    "date": "2026-03-11",
-    "lat": 27.688,
-    "lon": -82.7372,
-    "gps_location_set": false,
-    "photographer": "Jay"
-  },
-  {
-    "src": "Pass-a-grille March 11-2.jpg",
-    "title": "Dinner at Red White & Booze",
-    "caption": "Four friends gather under the glowing sign of Red, White & Booze, all smiles after a night of fresh fish and live music dockside at Pass-a-Grille.",
-    "location": "Pass-a-Grille, FL",
-    "date": "2026-03-11",
-    "lat": 27.697125,
-    "lon": -82.73571667,
-    "gps_location_set": true,
-    "photographer": "Jay"
-  },
-  {
     "src": "Pass-a-grille March 11-3.jpg",
     "title": "Alone on the Brick Street",
     "caption": "A woman sits cross-legged on the cobblestone of Historic Pass-a-Grille at night, string lights twinkling overhead as the quiet street stretches into the dark behind her.",
@@ -565,28 +543,6 @@
     "date": "2026-03-11",
     "lat": 27.68806111,
     "lon": -82.73726667,
-    "gps_location_set": true,
-    "photographer": "Jay"
-  },
-  {
-    "src": "Pass-a-grille March 11-4.jpg",
-    "title": "Night Out on Historic Pass-a-Grille",
-    "caption": "A couple pauses for a selfie on the brick-paved street of the historic district, the warm glow of string lights and storefronts framing a perfect night out.",
-    "location": "Pass-a-Grille, FL",
-    "date": "2026-03-11",
-    "lat": 27.68806111,
-    "lon": -82.73725833,
-    "gps_location_set": true,
-    "photographer": "Jay"
-  },
-  {
-    "src": "Pass-a-grille March 11-5.jpg",
-    "title": "Happy Hour at Reef Donkey",
-    "caption": "Two people beam under the Reef Donkey neon sign, pool tables glowing green behind them in this beloved Pass-a-Grille dive bar.",
-    "location": "Pass-a-Grille, FL",
-    "date": "2026-03-11",
-    "lat": 27.68804722,
-    "lon": -82.73728889,
     "gps_location_set": true,
     "photographer": "Jay"
   },
