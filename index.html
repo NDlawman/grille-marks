@@ -700,6 +700,24 @@
     font-weight: 600;
     letter-spacing: 0.01em;
   }
+
+  /* ── MOBILE: flow the OTG link below title instead of overlapping ── */
+  @media (max-width: 620px) {
+    .off-grille-link {
+      position: static;
+      display: inline-block;
+      margin: 1rem auto 0;
+      transform: rotate(1deg);
+    }
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header::after {
+      margin-top: 1rem;
+    }
+  }
   </style>
 </head>
 <body>
@@ -718,7 +736,7 @@
   <div class="view-tabs">
     <button class="view-tab active" data-view="gallery">Gallery</button>
     <button class="view-tab" data-view="map">Map</button>
-    <button class="view-tab share-tab" id="open-share-modal">+ Share</button>
+    <button class="view-tab share-tab" id="open-share-modal">📷 Submit a Photo</button>
   </div>
 
   <!-- GALLERY VIEW -->
@@ -773,11 +791,11 @@
   <div id="share-modal" role="dialog" aria-modal="true" aria-labelledby="share-modal-title">
     <div class="modal-inner">
       <button class="modal-close" id="share-close" aria-label="Close">&times;</button>
-      <div class="modal-eyebrow">Contribute</div>
-      <h2 class="modal-title" id="share-modal-title">Share a Photo</h2>
+      <div class="modal-eyebrow">Submit Your Photo</div>
+      <h2 class="modal-title" id="share-modal-title">Add to the Collection</h2>
       <p class="modal-body">
-        Have a photo from Pass-a-Grille, Gulfport, or the surrounding area? We'd love to consider it for the collection.<br><br>
-        Email your photo to <strong>ndlawman@gmail.com</strong> with the subject line <strong>"Photo Submission"</strong> and include where and when it was taken. All submissions are reviewed personally.
+        Have a photo from Pass-a-Grille, Gulfport, or the surrounding area that you'd like considered for <strong>Grille Marks</strong>? (Not sure? Rejects go to <a href="https://ndlawman.github.io/off-the-grille" target="_blank" style="color:var(--accent)">Off the Grille</a> — either way, send it.)<br><br>
+        Email your photo to <strong>ndlawman@gmail.com</strong> with the subject line <strong>"Photo Submission"</strong> and include where and when it was taken. All submissions are reviewed personally by Jay.
       </p>
       <div class="modal-actions">
         <a class="btn-primary" href="mailto:ndlawman@gmail.com?subject=Photo%20Submission&body=Hi%20Jay%2C%0A%0AHere%20is%20my%20photo%20submission%20for%20Grille%20Marks.%0A%0ALocation%3A%20%0ADate%20taken%3A%20%0ADescription%3A%20%0A%0APlease%20find%20my%20photo%20attached.">Open Email</a>
