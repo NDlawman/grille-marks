@@ -667,5 +667,45 @@
     "lat": 27.688,
     "lon": -82.7372,
     "photographer": "Jay"
+  },
+  {
+    "src": "Pass-a-grille March 12-1.jpg",
+    "title": "After the Pink",
+    "caption": "The last pink drains from the clouds above Pass-a-Grille, leaving a single palm to hold its silhouette against whatever comes next.",
+    "date": "2026-03-12",
+    "location": "Pass-a-Grille, FL",
+    "lat": 27.688,
+    "lon": -82.7378,
+    "photographer": "Jay"
+  },
+  {
+    "src": "Pass-a-grille March 14-1.jpg",
+    "title": "Gold on the Water",
+    "caption": "The sun pulls its light slowly across the Gulf, leaving a long gold road on the water that nobody built and everybody follows.",
+    "date": "2026-03-14",
+    "location": "Pass-a-Grille, FL",
+    "lat": 27.6877,
+    "lon": -82.7378,
+    "photographer": "Jay"
+  },
+  {
+    "src": "Pass-a-grille March 14-2.jpg",
+    "title": "Half Gone",
+    "caption": "The sun touches the horizon and pauses there \u2014 half in the world, half out \u2014 while the Gulf holds its breath and a bird crosses the seam.",
+    "date": "2026-03-14",
+    "location": "Pass-a-Grille, FL",
+    "lat": 27.6877,
+    "lon": -82.7378,
+    "photographer": "Jay"
+  },
+  {
+    "src": "Pass-a-grille March 14-3.jpg",
+    "title": "Last Light, Scattered",
+    "caption": "A moment later and the sun has traded its reflection for a lens flare \u2014 the Gulf rewriting what it saw into something only cameras know.",
+    "date": "2026-03-14",
+    "location": "Pass-a-Grille, FL",
+    "lat": 27.6877,
+    "lon": -82.7378,
+    "photographer": "Jay"
   }
 ]
