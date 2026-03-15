@@ -234,13 +234,14 @@
     .gallery {
       columns: 3;
       column-gap: 1.2rem;
+      column-fill: balance;
       padding: 0 2rem 0;
       max-width: 1400px;
       margin: 0 auto;
     }
 
     @media (max-width: 900px) { .gallery { columns: 2; } }
-    @media (max-width: 550px) { .gallery { columns: 2; padding: 0 0.75rem 0; column-gap: 0.75rem; } }
+    @media (max-width: 550px) { .gallery { columns: 2; column-width: auto; padding: 0 0.75rem 0; column-gap: 0.75rem; } }
 
     .photo-card {
       break-inside: avoid;
@@ -267,6 +268,7 @@
       display: block;
       transition: transform 0.4s ease;
       object-fit: cover;
+      image-orientation: from-image;
     }
 
     .card-overlay {
